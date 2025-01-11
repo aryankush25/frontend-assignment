@@ -1,0 +1,85 @@
+.table-container {
+  margin: 20px 0;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Skeleton styles */
+.skeleton-cell {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+  height: 20px;
+  margin: 0 auto;
+}
+
+.skeleton-small {
+  width: 30px;
+}
+
+.skeleton-medium {
+  width: 60px;
+}
+
+.skeleton-large {
+  width: 90px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 600px) {
+  th,
+  td {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
