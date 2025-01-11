@@ -10,6 +10,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .page-numbers {
@@ -17,6 +19,8 @@
   gap: 8px;
   margin: 0 15px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .page-number {
@@ -59,6 +63,7 @@
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
 .page-button:hover:not(:disabled) {
@@ -75,6 +80,7 @@
   color: var(--text-secondary);
   font-size: 14px;
   text-align: center;
+  width: 100%;
 }
 
 .ellipsis {
@@ -117,8 +123,32 @@
 }
 
 @media (max-width: 600px) {
+  .pagination {
+    gap: 10px;
+  }
+
+  .pagination-controls {
+    gap: 6px;
+  }
+
+  .page-numbers {
+    gap: 4px;
+    margin: 0 8px;
+  }
+
+  .page-number {
+    padding: 4px 8px;
+    min-width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
   .page-button {
     padding: 6px 12px;
-    font-size: 12px;
+    font-size: 13px;
+  }
+
+  .page-info {
+    font-size: 13px;
   }
 }
