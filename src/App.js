@@ -41,25 +41,27 @@ function AppContent() {
 
   return (
     <div className="App" data-theme={isDarkMode ? "dark" : "light"}>
-      <div className="container">
-        <div className="header">
-          <h1>Kickstarter Project</h1>
-          <button
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {isDarkMode ? "🌞" : "🌙"}
-          </button>
+      <div className="parent-container">
+        <div className="container">
+          <div className="header">
+            <h1>Kickstarter Project</h1>
+            <button
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? "🌞" : "🌙"}
+            </button>
+          </div>
+          <Table data={currentRecords} loading={loading} />
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            totalRecords={data.length}
+            onPageChange={setCurrentPage}
+            loading={loading}
+          />
         </div>
-        <Table data={currentRecords} loading={loading} />
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          totalRecords={data.length}
-          onPageChange={setCurrentPage}
-          loading={loading}
-        />
       </div>
     </div>
   );
