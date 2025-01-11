@@ -22,7 +22,7 @@
 .page-number {
   padding: 6px 12px;
   border: 1px solid #3498db;
-  background-color: white;
+  background-color: var(--bg-secondary);
   color: #3498db;
   border-radius: 4px;
   cursor: pointer;
@@ -36,7 +36,7 @@
 }
 
 .page-number:hover:not(:disabled) {
-  background-color: #f8f9fa;
+  background-color: var(--border-color);
 }
 
 .page-number.active {
@@ -47,6 +47,7 @@
 
 .page-number:disabled {
   cursor: default;
+  opacity: 0.5;
 }
 
 .page-button {
@@ -65,18 +66,19 @@
 }
 
 .page-button:disabled {
-  background-color: #bdc3c7;
+  background-color: var(--border-color);
   cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .page-info {
-  color: #7f8c8d;
+  color: var(--text-secondary);
   font-size: 14px;
   text-align: center;
 }
 
 .ellipsis {
-  color: #95a5a6;
+  color: var(--text-secondary);
   margin: 0 2px;
   font-weight: bold;
   user-select: none;
@@ -91,7 +93,12 @@
 }
 
 .skeleton-text {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--border-color) 50%,
+    var(--bg-secondary) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: 4px;

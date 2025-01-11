@@ -3,9 +3,10 @@ import Table from "./components/Table/Table";
 import Pagination from "./components/Pagination/Pagination";
 import Error from "./components/Error/Error";
 import { fetchKickstarterData } from "./utils/api";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import "./styles/common.css";
 
-function App() {
+function AppContent() {
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,14 +33,25 @@ function App() {
   const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
   const totalPages = Math.ceil(data.length / recordsPerPage);
 
+  const { isDarkMode, toggleTheme } = useTheme();
+
   if (error) {
     return <Error message={error} />;
   }
 
   return (
-    <div className="App">
+    <div className="App" data-theme={isDarkMode ? "dark" : "light"}>
       <div className="container">
-        <h1>Kickstarter Projects</h1>
+        <div className="header">
+          <h1>Kickstarter Project</h1>
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? "🌞" : "🌙"}
+          </button>
+        </div>
         <Table data={currentRecords} loading={loading} />
         <Pagination
           currentPage={currentPage}
@@ -50,6 +62,14 @@ function App() {
         />
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 
