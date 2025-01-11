@@ -1,14 +1,12 @@
 .table-container {
   margin: 20px 0;
   overflow-x: auto;
-  border-radius: 4px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   background-color: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 th,
